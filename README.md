@@ -5,9 +5,9 @@
 - [] create posts for each trip
 - [] adjust tag/category thingy
 - [] try out the photo slider
-- [] fix video for main page
+- [x] fix video for main page
 - [] write small guide
-
+- [] black page before video
 
 
 
