@@ -24,7 +24,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Adventure Squad
+title: Home
 email: your-email@domain.com
 author: GitHub User
 
@@ -108,10 +108,10 @@ yat:
 # spacegrey: #353535
 # snowwhite: #ffffff
 #
-# theme_color: snowwhite
+#theme_color: spacegrey
 #
 # Custom color as below:
-# theme_color: "#882250"
+# theme_color: "#ff69b4"   # Hot Pink
 
 # You can choose a brand color
 # Default brand colors as below:
@@ -125,9 +125,9 @@ yat:
 # brand_color: "#1a8e42"
 
 # You can custom selection style
-# selection:
-#   color: "#ff00ff"
-#   background_color: "yellow"
+selection:
+  color: "#ff00ff"
+  background_color: "green"
 
 # Night/Dark mode
 # Default mode is "auto", "auto" is for auto nightshift
@@ -159,12 +159,13 @@ header_pages:
   - tags.html
 #   - about.md
 
-# Page default value
-# defaults:
-#   home:
-#     heading: "Your awesome heading"
-#     subheading: "Your awesome subheading"
-#     banner: "Your image url"
+#Page default value
+defaults:
+  home:
+    heading: "Adventure Squad"
+    subheading: ""
+    banner: "/assets/images/banners/mountainsbanner.jpg"
+
 
 # Banner default settings
 # These banner settings are for global banner default, but you can also
