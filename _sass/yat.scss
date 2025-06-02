@@ -78,6 +78,33 @@ $on-laptop:        800px !default;
   }
 }
 
+.ct-language {
+  display: none !important;
+}
+
+@include media-query($on-palm) {
+  .banner {
+    height: 180px !important;
+    min-height: 100px !important;
+    padding: 1em 0 !important;
+    background-size: cover !important;
+  }
+  .banner-heading {
+    font-size: 1.2em !important;
+    line-height: 1.2 !important;
+    word-break: break-word;
+    padding: 0 0.5em;
+  }
+  .banner-subheading {
+    font-size: 0.95em !important;
+    line-height: 1.2 !important;
+    word-break: break-word;
+    padding: 0 0.5em;
+  }
+}
+
+
+
 // Import partials.
 @import
   "yat/base",

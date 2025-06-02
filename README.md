@@ -1,13 +1,19 @@
 # Adventure Squad Website
 
 ## TODO:
-- [] reduce video sizes further
-- [] create posts for each trip
-- [] adjust tag/category thingy
-- [] try out the photo slider
+- [x] reduce video sizes further
+- [x] create posts for each trip
+- [x] adjust tag/category thingy
 - [x] fix video for main page
-- [] write small guide
-- [] black page before video
+- [x] write small guide
+- [x] black page before video
+- [] fix audio k page
+- [] check that the page looks ok on mobile
+- [] start writing some posts
+- [] figure out how toc works
+- [x] change the accent color to yellow
+- [] figure out photoswipe
+- [] add pics for posts
 
 
 
