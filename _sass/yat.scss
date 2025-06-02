@@ -83,12 +83,11 @@ $on-laptop:        800px !default;
 }
 
 @media screen and (max-width: 600px) {
-  .banner-heading {
-    border-width: 1px !important;
-    padding: 0.05em 0.2em !important;
-    max-width: 350px !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
+  .page-banner-heading {
+    font-size: 0.95em !important;
+    border-width: 2px !important;
+    padding: 0.03em 0.18em !important; // Doubled padding
+    max-width: 320px !important;
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
@@ -96,6 +95,21 @@ $on-laptop:        800px !default;
     display: inline-block !important;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .post-title {
+    font-size: 0.95em !important;
+    border-width: 2px !important;
+    padding: 0.03em 0.18em !important; // Doubled padding
+    max-width: 320px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    letter-spacing: 0.08em !important;
+    display: inline-block !important;
+  }
+}
+
 
 // Import partials.
 @import

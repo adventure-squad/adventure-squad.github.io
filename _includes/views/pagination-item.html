@@ -22,6 +22,7 @@
 {%- assign default_image = return -%}
 
 {%- assign post_image = post.excerpt_image
+  | default: post.image
   | default: post.banner.image
   | default: post.banner
   | default: default_image

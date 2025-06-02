@@ -7,7 +7,7 @@
 - [x] fix video for main page
 - [x] write small guide
 - [x] black page before video
-- [] fix audio k page
+- [x] fix audio k page
 - [] check that the page looks ok on mobile
 - [] start writing some posts
 - [] figure out how toc works
