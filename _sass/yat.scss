@@ -82,11 +82,15 @@ $on-laptop:        800px !default;
   display: none !important;
 }
 
+.trigger .page-link:has(.ct-language) {
+  display: none !important;
+}
+
 @media screen and (max-width: 600px) {
   .page-banner-heading {
     font-size: 0.95em !important;
     border-width: 2px !important;
-    padding: 0.03em 0.18em !important; // Doubled padding
+    padding: 0.04em 0.36em !important; // Doubled padding
     max-width: 320px !important;
     white-space: nowrap !important;
     overflow: hidden !important;
@@ -100,7 +104,7 @@ $on-laptop:        800px !default;
   .post-title {
     font-size: 0.95em !important;
     border-width: 2px !important;
-    padding: 0.03em 0.18em !important; // Doubled padding
+    padding: 0.04em 0.36em !important; // Doubled padding
     max-width: 320px !important;
     white-space: nowrap !important;
     overflow: hidden !important;
@@ -108,6 +112,39 @@ $on-laptop:        800px !default;
     letter-spacing: 0.08em !important;
     display: inline-block !important;
   }
+}
+
+.masonry-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.masonry-gallery a {
+  display: block;
+  flex: 1 1 120px; /* Grow, shrink, base width */
+  max-width: 180px;
+}
+
+.masonry-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Optional: Make some images taller for a mismatched look */
+.masonry-gallery a:nth-child(2n) img {
+  height: 180px;
+  object-fit: cover;
+}
+.masonry-gallery a:nth-child(3n) img {
+  height: 140px;
+  object-fit: cover;
 }
 
 

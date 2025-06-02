@@ -14,6 +14,7 @@
 - [x] change the accent color to yellow
 - [] figure out photoswipe
 - [] add pics for posts
+- [x] fix mobile navbar
 
 
 
