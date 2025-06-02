@@ -82,28 +82,20 @@ $on-laptop:        800px !default;
   display: none !important;
 }
 
-@include media-query($on-palm) {
-  .banner {
-    height: 180px !important;
-    min-height: 100px !important;
-    padding: 1em 0 !important;
-    background-size: cover !important;
-  }
+@media screen and (max-width: 600px) {
   .banner-heading {
-    font-size: 1.2em !important;
-    line-height: 1.2 !important;
-    word-break: break-word;
-    padding: 0 0.5em;
-  }
-  .banner-subheading {
-    font-size: 0.95em !important;
-    line-height: 1.2 !important;
-    word-break: break-word;
-    padding: 0 0.5em;
+    border-width: 1px !important;
+    padding: 0.05em 0.2em !important;
+    max-width: 350px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    letter-spacing: 0.08em !important;
+    display: inline-block !important;
   }
 }
-
-
 
 // Import partials.
 @import
