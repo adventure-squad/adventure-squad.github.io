@@ -8,7 +8,7 @@
 - [x] write small guide
 - [x] black page before video
 - [x] fix audio k page
-- [] check that the page looks ok on mobile
+- [x] check that the page looks ok on mobile
 - [] start writing some posts
 - [] figure out how toc works
 - [x] change the accent color to yellow
