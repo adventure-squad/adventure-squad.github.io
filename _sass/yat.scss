@@ -114,39 +114,182 @@ $on-laptop:        800px !default;
   }
 }
 
-.masonry-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: flex-start;
-  align-items: flex-start;
+
+
+/* Photo Gallery Styles */
+.photo-gallery {
+  columns: 1;
+  column-gap: 16px;
+  margin: 2rem 0;
 }
 
-.masonry-gallery a {
-  display: block;
-  flex: 1 1 120px; /* Grow, shrink, base width */
-  max-width: 180px;
+/* Responsive columns */
+@media (min-width: 768px) {
+  .photo-gallery {
+    columns: 2;
+  }
 }
 
-.masonry-gallery img {
-  display: block;
+@media (min-width: 1024px) {
+  .photo-gallery {
+    columns: 3;
+  }
+}
+
+@media (min-width: 1440px) {
+  .photo-gallery {
+    columns: 4;
+  }
+}
+
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.gallery-item img {
   width: 100%;
   height: auto;
-  border-radius: 6px;
-  object-fit: cover;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  display: block;
+  border-radius: 8px;
 }
 
-/* Optional: Make some images taller for a mismatched look */
-.masonry-gallery a:nth-child(2n) img {
-  height: 180px;
-  object-fit: cover;
-}
-.masonry-gallery a:nth-child(3n) img {
-  height: 140px;
-  object-fit: cover;
+.gallery-item .caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: white;
+  padding: 20px 12px 12px;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
+.gallery-item:hover .caption {
+  opacity: 1;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  cursor: pointer;
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80%;
+  object-fit: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: default;
+  border-radius: 8px;
+}
+
+.modal-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px 20px;
+  border-radius: 20px;
+  max-width: 80%;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001;
+  transition: color 0.3s ease;
+}
+
+.close:hover {
+  color: #ccc;
+}
+
+/* Navigation buttons */
+.modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  pointer-events: none;
+}
+
+.modal-nav button {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+  pointer-events: auto;
+}
+
+.modal-nav button:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .modal-content {
+    max-width: 95%;
+    max-height: 70%;
+  }
+  
+  .close {
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+  }
+  
+  .modal-nav button {
+    padding: 10px 15px;
+    font-size: 20px;
+  }
+  
+  .modal-caption {
+    bottom: 10px;
+    font-size: 0.9rem;
+    max-width: 90%;
+  }
+}
 
 // Import partials.
 @import

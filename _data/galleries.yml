@@ -1,0 +1,36 @@
+
+norway_2024:
+  - src: "/assets/images/test/1.jpg"
+    alt: "Spectacular mountain view from summit"
+    caption: "The breathtaking view from Preikestolen cliff"
+  - src: "/assets/images/test/1.jpg"
+    alt: "Winding hiking trail through forest"
+    caption: "Morning hike through Norwegian wilderness"
+  - src: "/assets/images/test/2.jpg"
+    alt: "Sunset over Norwegian fjord"
+    caption: "Golden hour at Geirangerfjord"
+  - src: "/assets/images/test/3.jpg"
+    alt: "Tent setup by lake"
+    caption: "Wild camping by crystal clear mountain lake"
+
+slovenia_2022:
+  - src: "/assets/images/slovenia/triglav-peak.jpg"
+    alt: "Triglav mountain peak"
+    caption: "Slovenia's highest peak - Mount Triglav"
+  - src: "/assets/images/slovenia/lake-bled.jpg"
+    alt: "Lake Bled with island church"
+    caption: "The iconic Lake Bled and its island church"
+  - src: "/assets/images/slovenia/emerald-river.jpg"
+    alt: "Emerald green Soča river"
+    caption: "The stunning Soča river valley"
+
+kyrgyzstan_2023:
+  - src: "/assets/images/kyrgyzstan/yurt-camp.jpg"
+    alt: "Traditional yurt in mountain valley"
+    caption: "Overnight stay in traditional nomad yurt"
+  - src: "/assets/images/kyrgyzstan/horse-riders.jpg"
+    alt: "Kyrgyz horsemen in traditional dress"
+    caption: "Local horsemen demonstrating traditional skills"
+  - src: "/assets/images/kyrgyzstan/alpine-lake.jpg"
+    alt: "High altitude alpine lake"
+    caption: "Pristine alpine lake at 3,500m elevation"
