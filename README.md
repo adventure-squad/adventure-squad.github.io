@@ -1,20 +1,35 @@
 # Adventure Squad Website
 
 ## TODO:
-- [x] reduce video sizes further
-- [x] create posts for each trip
-- [x] adjust tag/category thingy
-- [x] fix video for main page
-- [x] write small guide
-- [x] black page before video
-- [x] fix audio k page
-- [x] check that the page looks ok on mobile
-- [] start writing some posts
-- [] figure out how toc works
-- [x] change the accent color to yellow
-- [] figure out photoswipe
-- [] add pics for posts
-- [x] fix mobile navbar
+[x] reduce video sizes further
+[x] create posts for each trip
+[x] adjust tag/category thingy
+[x] fix video for main page
+[x] write small guide
+	[] update the guide
+[x] black page before video
+[x] fix audio k page
+[x] check that the page looks ok on mobile
+[] start writing some posts
+[] figure out how toc works
+[x] change the accent color to yellow
+[x] <del>figure out photoswipe</del> used alternate package native to jekyll
+[x] fix mobile navbar
+
+[] More video fixes
+	[] multiple filesizes for different internet speeds
+	[] make slovenia reel
+	[] rehost on different provider
+	[] adjust folder structure
+
+[] add gpx map support
+	[] Implement the maps for some of the trips
+	
+[] More photo fixes
+	[] create working galleries for each trip
+	[] select a bunch of nice photos to start with
+	[] add captions for photos
+	
 
 
 

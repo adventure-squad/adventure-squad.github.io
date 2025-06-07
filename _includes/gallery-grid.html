@@ -1,0 +1,121 @@
+<style>
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.02);
+}
+
+/* Lightbox styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.lightbox-content {
+    position: relative;
+    margin: auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox img {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+}
+
+.lightbox-caption {
+    color: white;
+    font-size: 16px;
+    margin-top: 15px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    opacity: 0.7;
+}
+</style>
+
+<div class="gallery-grid">
+    {% assign captions = include.captions | split: '|' %}
+    {% assign index = 0 %}
+    {% for file in site.static_files %}
+        {% if file.path contains include.folder %}
+            {% if file.extname == '.jpg' or file.extname == '.jpeg' or file.extname == '.png' or file.extname == '.gif' %}
+                <img src="{{ file.path | relative_url }}" 
+                     alt="{{ file.name }}" 
+                     onclick="openLightbox('{{ file.path | relative_url }}', '{{ captions[index] | escape }}')">
+                {% assign index = index | plus: 1 %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-content">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="">
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+</div>
+
+<script>
+function openLightbox(imageSrc, caption) {
+    document.getElementById('lightbox').style.display = 'block';
+    document.getElementById('lightbox-img').src = imageSrc;
+    
+    const captionElement = document.getElementById('lightbox-caption');
+    if (caption && caption.trim() !== '') {
+        captionElement.textContent = caption;
+        captionElement.style.display = 'block';
+    } else {
+        captionElement.style.display = 'none';
+    }
+}
+
+function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+}
+
+// Close lightbox when pressing Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeLightbox();
+    }
+});
+</script>
