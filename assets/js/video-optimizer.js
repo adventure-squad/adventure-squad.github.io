@@ -79,16 +79,16 @@ class VideoOptimizer {
       // Mobile data optimizations
       switch (this.connectionSpeed) {
         case 'very-slow':
-          optimizations = ['q_auto:low', 'f_auto', 'w_auto:100:400', 'br_200k'];
+          optimizations = ['q_auto:low', 'f_auto', 'w_auto:100:400', 'br_3000k'];
           break;
         case 'slow':
-          optimizations = ['q_auto:low', 'f_auto', 'w_auto:100:600', 'br_800k'];
+          optimizations = ['q_auto:low', 'f_auto', 'w_auto:100:600', 'br_3000k'];
           break;
         case 'fast':
-          optimizations = ['q_auto:low', 'f_auto', 'w_auto:100:800', 'br_1600k'];
+          optimizations = ['q_auto:high', 'f_auto', 'w_auto:100:800', 'br_3000k'];
           break;
         default:
-          optimizations = ['q_auto:low', 'f_auto', 'w_auto:100:600', 'br_3000k'];
+          optimizations = ['q_auto:high', 'f_auto', 'w_auto:100:600', 'br_3000k'];
       }
     } else {
       // WiFi or wired connection - use higher quality
