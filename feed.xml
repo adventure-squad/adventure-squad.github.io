@@ -1,0 +1,1291 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2025-06-07T13:28:49+00:00</updated><id>/feed.xml</id><title type="html">Home</title><subtitle>Adventure Squad</subtitle><author><name>GitHub User</name></author><entry><title type="html">Norway 2024</title><link href="/trips/2025/06/01/Norway-2024.html" rel="alternate" type="text/html" title="Norway 2024" /><published>2025-06-01T00:00:00+00:00</published><updated>2025-06-01T00:00:00+00:00</updated><id>/trips/2025/06/01/Norway-2024</id><content type="html" xml:base="/trips/2025/06/01/Norway-2024.html"><![CDATA[<h2 id="introduction">Introduction</h2>
+
+<p>This section contains an introduction of the idea behind the trip,</p>
+
+<style>
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Always 4 columns */
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.02);
+}
+
+/* Lightbox styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.lightbox-content {
+    position: relative;
+    margin: auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox img {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+}
+
+.lightbox-caption {
+    color: white;
+    font-size: 16px;
+    margin-top: 15px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    padding: 10px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 50%;
+    z-index: 1001;
+    transform: translateY(-50%);
+}
+.left-arrow { left: 10px; }
+.right-arrow { right: 10px; }
+.arrow:hover { background: rgba(0,0,0,0.5); }
+.close:hover {
+    opacity: 0.7;
+}
+</style>
+
+<div class="gallery-grid">
+    
+    
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <img src="/assets/images/norway/norway_gallery/20240828_073212.jpg" alt="20240828_073212.jpg" onclick="openLightbox('/assets/images/norway/norway_gallery/20240828_073212.jpg', 'At camp')" />
+                
+            
+        
+    
+        
+            
+                <img src="/assets/images/norway/norway_gallery/20240829_143912.jpg" alt="20240829_143912.jpg" onclick="openLightbox('/assets/images/norway/norway_gallery/20240829_143912.jpg', 'Clear day on the water')" />
+                
+            
+        
+    
+        
+            
+                <img src="/assets/images/norway/norway_gallery/DSCF2397_DxO.jpg" alt="DSCF2397_DxO.jpg" onclick="openLightbox('/assets/images/norway/norway_gallery/DSCF2397_DxO.jpg', 'At the end of Lysefjord')" />
+                
+            
+        
+    
+        
+            
+                <img src="/assets/images/norway/norway_gallery/DSCF2431_DxO.jpg" alt="DSCF2431_DxO.jpg" onclick="openLightbox('/assets/images/norway/norway_gallery/DSCF2431_DxO.jpg', 'View from Preikestolen')" />
+                
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-content">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <span class="arrow left-arrow" onclick="prevImage(event)">&#10094;</span>
+        <span class="arrow right-arrow" onclick="nextImage(event)">&#10095;</span>
+        <img id="lightbox-img" src="" alt="" />
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+</div>
+<script>
+let galleryImages = [];
+let galleryCaptions = [];
+let currentIndex = 0;
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Gather all images and captions in the gallery
+    galleryImages = Array.from(document.querySelectorAll('.gallery-grid img'));
+    galleryCaptions = galleryImages.map(img => img.getAttribute('onclick').match(/, '([^']*)'\)/)[1]);
+});
+
+function openLightbox(imageSrc, caption) {
+    document.getElementById('lightbox').style.display = 'block';
+    document.getElementById('lightbox-img').src = imageSrc;
+
+    // Find current index
+    currentIndex = galleryImages.findIndex(img => img.src.endsWith(imageSrc));
+    updateCaption(caption);
+}
+
+function updateCaption(caption) {
+    const captionElement = document.getElementById('lightbox-caption');
+    if (caption && caption.trim() !== '') {
+        captionElement.textContent = caption;
+        captionElement.style.display = 'block';
+    } else {
+        captionElement.style.display = 'none';
+    }
+}
+
+function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+}
+
+function prevImage(event) {
+    event.stopPropagation();
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    showImageByIndex();
+}
+
+function nextImage(event) {
+    event.stopPropagation();
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    showImageByIndex();
+}
+
+function showImageByIndex() {
+    const img = galleryImages[currentIndex];
+    document.getElementById('lightbox-img').src = img.src;
+    updateCaption(galleryCaptions[currentIndex]);
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', function(event) {
+    if (document.getElementById('lightbox').style.display === 'block') {
+        if (event.key === 'Escape') closeLightbox();
+        if (event.key === 'ArrowLeft') prevImage(event);
+        if (event.key === 'ArrowRight') nextImage(event);
+    }
+});
+
+// Touch/swipe support
+let touchStartX = null;
+document.getElementById('lightbox').addEventListener('touchstart', function(e) {
+    touchStartX = e.changedTouches[0].screenX;
+});
+document.getElementById('lightbox').addEventListener('touchend', function(e) {
+    if (touchStartX === null) return;
+    let touchEndX = e.changedTouches[0].screenX;
+    if (touchEndX - touchStartX > 50) prevImage(e);
+    if (touchStartX - touchEndX > 50) nextImage(e);
+    touchStartX = null;
+});
+</script>
+
+<h2 id="trail">Trail</h2>
+
+<p>This section contains a description of our chosen route, along with an interactive map of the trail.</p>
+
+<!-- Map Container -->
+<div id="kyrg-map" style="height: 400px; width: 100%; margin: 20px 0; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);"></div>
+
+<!-- Leaflet CSS and JS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+<!-- Leaflet GPX Plugin -->
+<script src="https://cdn.jsdelivr.net/npm/leaflet-gpx@1.7.0/gpx.min.js"></script>
+
+<!-- Your GPX Map Script -->
+<script src="/assets/js/gpx-map.js"></script>
+
+<!-- Initialize This Map -->
+<script>
+initGPXMap('kyrg-map', '/assets/maps/Neoson-Water-Lysefjord.gpx');
+</script>
+
+<h2 id="chosen-route">Chosen Route</h2>
+
+<p>This section contains a description of the trail, as well as the map</p>
+
+<h2 id="preparation">Preparation</h2>
+
+<p>This section described how we prepared for the trip</p>
+
+<h3 id="equipment">Equipment</h3>
+
+<p>This section describes the equipment we needed</p>
+
+<h3 id="food-and-water">Food and Water</h3>
+
+<p>This section describes food and water preparation</p>
+
+<hr />
+
+<h2 id="journey">Journey</h2>
+
+<h3 id="day-1">Day 1</h3>
+<h3 id="day-2">Day 2</h3>
+<h3 id="day-3">Day 3</h3>
+<h3 id="day-4">Day 4</h3>
+<h3 id="day-5">Day 5</h3>
+<h3 id="day-6">Day 6</h3>
+<h3 id="day-7">Day 7</h3>
+
+<h3 id="photos">Photos</h3>
+
+<p>Here are some photos:</p>
+
+<h1 id="my-adventure-photos">My Adventure Photos</h1>
+
+<p>Here are some photos from our recent adventure:</p>]]></content><author><name>Anon</name></author><category term="trips" /><category term="trips" /><summary type="html"><![CDATA[Introduction]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/norway/20240829_143912.jpg" /><media:content medium="image" url="/assets/images/norway/20240829_143912.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Kyrgyzstan 2023</title><link href="/trips/2025/06/01/kyrg-2023.html" rel="alternate" type="text/html" title="Kyrgyzstan 2023" /><published>2025-06-01T00:00:00+00:00</published><updated>2025-06-01T00:00:00+00:00</updated><id>/trips/2025/06/01/kyrg-2023</id><content type="html" xml:base="/trips/2025/06/01/kyrg-2023.html"><![CDATA[<h2 id="introduction">Introduction</h2>
+
+<p>In the late summer of 2023, we decided to venture upon the mountains and valleys of Kyrgyzstan….</p>
+
+<style>
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Always 4 columns */
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.02);
+}
+
+/* Lightbox styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.lightbox-content {
+    position: relative;
+    margin: auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox img {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+}
+
+.lightbox-caption {
+    color: white;
+    font-size: 16px;
+    margin-top: 15px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    padding: 10px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 50%;
+    z-index: 1001;
+    transform: translateY(-50%);
+}
+.left-arrow { left: 10px; }
+.right-arrow { right: 10px; }
+.arrow:hover { background: rgba(0,0,0,0.5); }
+.close:hover {
+    opacity: 0.7;
+}
+</style>
+
+<div class="gallery-grid">
+    
+    
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <img src="/assets/images/kyrg/kyrg_gallery/20230824_072850.jpg" alt="20230824_072850.jpg" onclick="openLightbox('/assets/images/kyrg/kyrg_gallery/20230824_072850.jpg', 'Camping on the mountainside')" />
+                
+            
+        
+    
+        
+            
+                <img src="/assets/images/kyrg/kyrg_gallery/20230825_171311.jpg" alt="20230825_171311.jpg" onclick="openLightbox('/assets/images/kyrg/kyrg_gallery/20230825_171311.jpg', 'Ascending the steppes')" />
+                
+            
+        
+    
+        
+            
+                <img src="/assets/images/kyrg/kyrg_gallery/DSCF1941.jpg" alt="DSCF1941.jpg" onclick="openLightbox('/assets/images/kyrg/kyrg_gallery/DSCF1941.jpg', 'Rocky peaks')" />
+                
+            
+        
+    
+        
+            
+                <img src="/assets/images/kyrg/kyrg_gallery/DSCF2149.jpg" alt="DSCF2149.jpg" onclick="openLightbox('/assets/images/kyrg/kyrg_gallery/DSCF2149.jpg', 'By the river')" />
+                
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-content">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <span class="arrow left-arrow" onclick="prevImage(event)">&#10094;</span>
+        <span class="arrow right-arrow" onclick="nextImage(event)">&#10095;</span>
+        <img id="lightbox-img" src="" alt="" />
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+</div>
+<script>
+let galleryImages = [];
+let galleryCaptions = [];
+let currentIndex = 0;
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Gather all images and captions in the gallery
+    galleryImages = Array.from(document.querySelectorAll('.gallery-grid img'));
+    galleryCaptions = galleryImages.map(img => img.getAttribute('onclick').match(/, '([^']*)'\)/)[1]);
+});
+
+function openLightbox(imageSrc, caption) {
+    document.getElementById('lightbox').style.display = 'block';
+    document.getElementById('lightbox-img').src = imageSrc;
+
+    // Find current index
+    currentIndex = galleryImages.findIndex(img => img.src.endsWith(imageSrc));
+    updateCaption(caption);
+}
+
+function updateCaption(caption) {
+    const captionElement = document.getElementById('lightbox-caption');
+    if (caption && caption.trim() !== '') {
+        captionElement.textContent = caption;
+        captionElement.style.display = 'block';
+    } else {
+        captionElement.style.display = 'none';
+    }
+}
+
+function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+}
+
+function prevImage(event) {
+    event.stopPropagation();
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    showImageByIndex();
+}
+
+function nextImage(event) {
+    event.stopPropagation();
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    showImageByIndex();
+}
+
+function showImageByIndex() {
+    const img = galleryImages[currentIndex];
+    document.getElementById('lightbox-img').src = img.src;
+    updateCaption(galleryCaptions[currentIndex]);
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', function(event) {
+    if (document.getElementById('lightbox').style.display === 'block') {
+        if (event.key === 'Escape') closeLightbox();
+        if (event.key === 'ArrowLeft') prevImage(event);
+        if (event.key === 'ArrowRight') nextImage(event);
+    }
+});
+
+// Touch/swipe support
+let touchStartX = null;
+document.getElementById('lightbox').addEventListener('touchstart', function(e) {
+    touchStartX = e.changedTouches[0].screenX;
+});
+document.getElementById('lightbox').addEventListener('touchend', function(e) {
+    if (touchStartX === null) return;
+    let touchEndX = e.changedTouches[0].screenX;
+    if (touchEndX - touchStartX > 50) prevImage(e);
+    if (touchStartX - touchEndX > 50) nextImage(e);
+    touchStartX = null;
+});
+</script>
+
+<h2 id="trail">Trail</h2>
+
+<p>This section contains a description of our chosen route, along with an interactive map of the trail.</p>
+
+<!-- Map Container -->
+<div id="kyrg-map" style="height: 400px; width: 100%; margin: 20px 0; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);"></div>
+
+<!-- Leaflet CSS and JS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+<!-- Leaflet GPX Plugin -->
+<script src="https://cdn.jsdelivr.net/npm/leaflet-gpx@1.7.0/gpx.min.js"></script>
+
+<!-- Your GPX Map Script -->
+<script src="/assets/js/gpx-map.js"></script>
+
+<!-- Initialize This Map -->
+<script>
+initGPXMap('kyrg-map', '/assets/maps/kyrg_trail_compressed.gpx');
+</script>
+
+<h2 id="preparation">Preparation</h2>
+
+<p>This section described how we prepared for the trip</p>
+
+<h3 id="equipment">Equipment</h3>
+
+<p>This section describes the equipment we needed</p>
+
+<h3 id="food-and-water">Food and Water</h3>
+
+<p>This section describes food and water preparation</p>
+
+<hr />
+
+<h2 id="journey">Journey</h2>
+
+<h3 id="day-1">Day 1</h3>
+<h3 id="day-2">Day 2</h3>
+<h3 id="day-3">Day 3</h3>
+<h3 id="day-4">Day 4</h3>
+<h3 id="day-5">Day 5</h3>
+<h3 id="day-6">Day 6</h3>
+<h3 id="day-7">Day 7</h3>
+
+<h3 id="photos">Photos</h3>
+
+<p>Here are some photos:</p>
+
+<h1 id="my-adventure-photos">My Adventure Photos</h1>
+
+<p>Here are some photos from our recent adventure:</p>]]></content><author><name>Anon</name></author><category term="trips" /><category term="trips" /><summary type="html"><![CDATA[Introduction]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/banners/mountainsbanner.jpg" /><media:content medium="image" url="/assets/images/banners/mountainsbanner.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Triglav 2022</title><link href="/trips/2025/06/01/slovenia-2022.html" rel="alternate" type="text/html" title="Triglav 2022" /><published>2025-06-01T00:00:00+00:00</published><updated>2025-06-01T00:00:00+00:00</updated><id>/trips/2025/06/01/slovenia-2022</id><content type="html" xml:base="/trips/2025/06/01/slovenia-2022.html"><![CDATA[<h2 id="introduction">Introduction</h2>
+
+<p>This section contains an introduction of the idea behind the trip,</p>
+
+<style>
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Always 4 columns */
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.02);
+}
+
+/* Lightbox styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.lightbox-content {
+    position: relative;
+    margin: auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox img {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+}
+
+.lightbox-caption {
+    color: white;
+    font-size: 16px;
+    margin-top: 15px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    padding: 10px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 50%;
+    z-index: 1001;
+    transform: translateY(-50%);
+}
+.left-arrow { left: 10px; }
+.right-arrow { right: 10px; }
+.arrow:hover { background: rgba(0,0,0,0.5); }
+.close:hover {
+    opacity: 0.7;
+}
+</style>
+
+<div class="gallery-grid">
+    
+    
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <img src="/assets/images/slovenia/slovenia_gallery/20220911_160957.jpg" alt="20220911_160957.jpg" onclick="openLightbox('/assets/images/slovenia/slovenia_gallery/20220911_160957.jpg', 'Lake Bled')" />
+                
+            
+        
+    
+        
+            
+                <img src="/assets/images/slovenia/slovenia_gallery/20220912_112845.jpg" alt="20220912_112845.jpg" onclick="openLightbox('/assets/images/slovenia/slovenia_gallery/20220912_112845.jpg', 'Breaking through the treeline')" />
+                
+            
+        
+    
+        
+            
+                <img src="/assets/images/slovenia/slovenia_gallery/IMG_20220913_191032.jpg" alt="IMG_20220913_191032.jpg" onclick="openLightbox('/assets/images/slovenia/slovenia_gallery/IMG_20220913_191032.jpg', 'Above the mist at hut 3')" />
+                
+            
+        
+    
+        
+            
+                <img src="/assets/images/slovenia/slovenia_gallery/P_20220913_091452.jpg" alt="P_20220913_091452.jpg" onclick="openLightbox('/assets/images/slovenia/slovenia_gallery/P_20220913_091452.jpg', 'View from hell mountain')" />
+                
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-content">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <span class="arrow left-arrow" onclick="prevImage(event)">&#10094;</span>
+        <span class="arrow right-arrow" onclick="nextImage(event)">&#10095;</span>
+        <img id="lightbox-img" src="" alt="" />
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+</div>
+<script>
+let galleryImages = [];
+let galleryCaptions = [];
+let currentIndex = 0;
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Gather all images and captions in the gallery
+    galleryImages = Array.from(document.querySelectorAll('.gallery-grid img'));
+    galleryCaptions = galleryImages.map(img => img.getAttribute('onclick').match(/, '([^']*)'\)/)[1]);
+});
+
+function openLightbox(imageSrc, caption) {
+    document.getElementById('lightbox').style.display = 'block';
+    document.getElementById('lightbox-img').src = imageSrc;
+
+    // Find current index
+    currentIndex = galleryImages.findIndex(img => img.src.endsWith(imageSrc));
+    updateCaption(caption);
+}
+
+function updateCaption(caption) {
+    const captionElement = document.getElementById('lightbox-caption');
+    if (caption && caption.trim() !== '') {
+        captionElement.textContent = caption;
+        captionElement.style.display = 'block';
+    } else {
+        captionElement.style.display = 'none';
+    }
+}
+
+function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+}
+
+function prevImage(event) {
+    event.stopPropagation();
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    showImageByIndex();
+}
+
+function nextImage(event) {
+    event.stopPropagation();
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    showImageByIndex();
+}
+
+function showImageByIndex() {
+    const img = galleryImages[currentIndex];
+    document.getElementById('lightbox-img').src = img.src;
+    updateCaption(galleryCaptions[currentIndex]);
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', function(event) {
+    if (document.getElementById('lightbox').style.display === 'block') {
+        if (event.key === 'Escape') closeLightbox();
+        if (event.key === 'ArrowLeft') prevImage(event);
+        if (event.key === 'ArrowRight') nextImage(event);
+    }
+});
+
+// Touch/swipe support
+let touchStartX = null;
+document.getElementById('lightbox').addEventListener('touchstart', function(e) {
+    touchStartX = e.changedTouches[0].screenX;
+});
+document.getElementById('lightbox').addEventListener('touchend', function(e) {
+    if (touchStartX === null) return;
+    let touchEndX = e.changedTouches[0].screenX;
+    if (touchEndX - touchStartX > 50) prevImage(e);
+    if (touchStartX - touchEndX > 50) nextImage(e);
+    touchStartX = null;
+});
+</script>
+
+<h2 id="chosen-route">Chosen Route</h2>
+
+<p>This section contains a description of the trail, as well as the map</p>
+
+<h2 id="preparation">Preparation</h2>
+
+<p>This section described how we prepared for the trip</p>
+
+<h3 id="equipment">Equipment</h3>
+
+<p>This section describes the equipment we needed</p>
+
+<h3 id="food-and-water">Food and Water</h3>
+
+<p>This section describes food and water preparation</p>
+
+<hr />
+
+<h2 id="journey">Journey</h2>
+
+<h3 id="day-1">Day 1</h3>
+<h3 id="day-2">Day 2</h3>
+<h3 id="day-3">Day 3</h3>
+<h3 id="day-4">Day 4</h3>
+<h3 id="day-5">Day 5</h3>
+<h3 id="day-6">Day 6</h3>
+<h3 id="day-7">Day 7</h3>
+
+<h3 id="photos">Photos</h3>
+
+<p>Here are some photos:</p>
+
+<h1 id="my-adventure-photos">My Adventure Photos</h1>
+
+<p>Here are some photos from our recent adventure:</p>]]></content><author><name>Anon</name></author><category term="trips" /><category term="trips" /><summary type="html"><![CDATA[Introduction]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/slovenia/IMG_20220913_191032.jpg" /><media:content medium="image" url="/assets/images/slovenia/IMG_20220913_191032.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
