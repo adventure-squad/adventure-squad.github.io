@@ -1,7 +1,7 @@
 <style>
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, 1fr); /* Always 4 columns */
     gap: 10px;
     margin: 20px 0;
 }
@@ -65,6 +65,23 @@
     cursor: pointer;
 }
 
+.arrow {
+    position: absolute;
+    top: 50%;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    padding: 10px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 50%;
+    z-index: 1001;
+    transform: translateY(-50%);
+}
+.left-arrow { left: 10px; }
+.right-arrow { right: 10px; }
+.arrow:hover { background: rgba(0,0,0,0.5); }
 .close:hover {
     opacity: 0.7;
 }
@@ -89,16 +106,33 @@
 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
     <div class="lightbox-content">
         <span class="close" onclick="closeLightbox()">&times;</span>
+        <span class="arrow left-arrow" onclick="prevImage(event)">&#10094;</span>
+        <span class="arrow right-arrow" onclick="nextImage(event)">&#10095;</span>
         <img id="lightbox-img" src="" alt="">
         <div id="lightbox-caption" class="lightbox-caption"></div>
     </div>
 </div>
-
 <script>
+let galleryImages = [];
+let galleryCaptions = [];
+let currentIndex = 0;
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Gather all images and captions in the gallery
+    galleryImages = Array.from(document.querySelectorAll('.gallery-grid img'));
+    galleryCaptions = galleryImages.map(img => img.getAttribute('onclick').match(/, '([^']*)'\)/)[1]);
+});
+
 function openLightbox(imageSrc, caption) {
     document.getElementById('lightbox').style.display = 'block';
     document.getElementById('lightbox-img').src = imageSrc;
-    
+
+    // Find current index
+    currentIndex = galleryImages.findIndex(img => img.src.endsWith(imageSrc));
+    updateCaption(caption);
+}
+
+function updateCaption(caption) {
     const captionElement = document.getElementById('lightbox-caption');
     if (caption && caption.trim() !== '') {
         captionElement.textContent = caption;
@@ -112,10 +146,43 @@ function closeLightbox() {
     document.getElementById('lightbox').style.display = 'none';
 }
 
-// Close lightbox when pressing Escape key
+function prevImage(event) {
+    event.stopPropagation();
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    showImageByIndex();
+}
+
+function nextImage(event) {
+    event.stopPropagation();
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    showImageByIndex();
+}
+
+function showImageByIndex() {
+    const img = galleryImages[currentIndex];
+    document.getElementById('lightbox-img').src = img.src;
+    updateCaption(galleryCaptions[currentIndex]);
+}
+
+// Keyboard navigation
 document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-        closeLightbox();
+    if (document.getElementById('lightbox').style.display === 'block') {
+        if (event.key === 'Escape') closeLightbox();
+        if (event.key === 'ArrowLeft') prevImage(event);
+        if (event.key === 'ArrowRight') nextImage(event);
     }
+});
+
+// Touch/swipe support
+let touchStartX = null;
+document.getElementById('lightbox').addEventListener('touchstart', function(e) {
+    touchStartX = e.changedTouches[0].screenX;
+});
+document.getElementById('lightbox').addEventListener('touchend', function(e) {
+    if (touchStartX === null) return;
+    let touchEndX = e.changedTouches[0].screenX;
+    if (touchEndX - touchStartX > 50) prevImage(e);
+    if (touchStartX - touchEndX > 50) nextImage(e);
+    touchStartX = null;
 });
 </script>
