@@ -21,12 +21,12 @@
 	- [x] rehost on different provider
 	- [x] adjust folder structure
 	- [x] mobile optimization script
-  - [ ] mobile video is still not auto-loading 
+ 	- [ ] mobile video is still not auto-loading 
 
 - [x] add gpx map support
 	- [x] Implement the map for kyrg
-  - [ ] Implement the map for norway
-  - [ ] Implement the map for slovenia 
+    - [ ] Implement the map for norway
+    - [ ] Implement the map for slovenia 
 	
 - [ ] More photo fixes
 	- [x] create working galleries for each trip
@@ -34,7 +34,7 @@
 	- [x] add captions for photos
 	- [x] add arrows and swipe support
 	- [x] add thumbnails for each trip
-  - [ ] migrate photo storage to cloudinary, like video
+    - [ ] migrate photo storage to cloudinary, like video
 
 - [ ] polish up the logo a bit more, tighten up the borders I think
 - [x] fix the favicon and page header
