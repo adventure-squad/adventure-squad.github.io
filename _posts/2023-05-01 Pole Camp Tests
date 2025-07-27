@@ -49,7 +49,7 @@ This section contains a description of our chosen route, along with an interacti
 
 <!-- Initialize This Map -->
 <script>
-initGPXMap('kyrg-map', '/assets/maps/Neoson-Water-Lysefjord.gpx');
+initGPXMap('kyrg-map', '/assets/maps/Mountainbikeroute Holten Blauw Lang.gpx');
 </script>
 
 
