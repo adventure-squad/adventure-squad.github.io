@@ -37,8 +37,7 @@
     width: 80%;
     max-width: 800px;
     text-align: center;
-    top: 50%;
-    transform: translateY(-50%);
+    /* Remove top and transform for proper flex centering */
 }
 
 .lightbox img {
@@ -60,8 +59,7 @@
     top: 10px;
     right: 25px;
     color: white;
-    font-size: 35px;
-    font-weight: bold;
+    font-size: 15px;
     cursor: pointer;
 }
 
@@ -69,13 +67,11 @@
     position: absolute;
     top: 50%;
     color: white;
-    font-size: 40px;
+    font-size: 20px;
     font-weight: bold;
     cursor: pointer;
     user-select: none;
     padding: 10px;
-    background: rgba(0,0,0,0.2);
-    border-radius: 50%;
     z-index: 1001;
     transform: translateY(-50%);
 }
@@ -91,14 +87,14 @@
     {% assign captions = include.captions | split: '|' %}
     {% assign index = 0 %}
     {% for file in site.static_files %}
-        {% if file.path contains include.folder %}
-            {% if file.extname == '.jpg' or file.extname == '.jpeg' or file.extname == '.png' or file.extname == '.gif' %}
-                <img src="{{ file.path | relative_url }}" 
-                     alt="{{ file.name }}" 
-                     onclick="openLightbox('{{ file.path | relative_url }}', '{{ captions[index] | escape }}')">
-                {% assign index = index | plus: 1 %}
-            {% endif %}
+      {% if file.path contains include.folder %}
+        {% if file.extname == '.jpg' or file.extname == '.jpeg' or file.extname == '.png' or file.extname == '.gif' %}
+          <a href="{{ file.path | relative_url }}" class="photo-swipe" data-caption="{{ captions[index] | escape }}">
+            <img src="{{ file.path | relative_url }}" alt="{{ file.name }}">
+          </a>
+          {% assign index = index | plus: 1 %}
         {% endif %}
+      {% endif %}
     {% endfor %}
 </div>
 
@@ -113,23 +109,38 @@
     </div>
 </div>
 <script>
+let galleryLinks = [];
 let galleryImages = [];
 let galleryCaptions = [];
 let currentIndex = 0;
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Gather all images and captions in the gallery
-    galleryImages = Array.from(document.querySelectorAll('.gallery-grid img'));
-    galleryCaptions = galleryImages.map(img => img.getAttribute('onclick').match(/, '([^']*)'\)/)[1]);
+    // Select all images inside links with .photo-swipe
+    galleryLinks = Array.from(document.querySelectorAll('a.photo-swipe'));
+    galleryImages = galleryLinks.map(link => link.querySelector('img'));
+    galleryCaptions = galleryLinks.map(link => link.getAttribute('data-caption') || '');
+
+    // Attach click event to all .photo-swipe links
+    galleryLinks.forEach(function(link, idx) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            openLightbox(link.getAttribute('href'), galleryCaptions[idx], idx);
+        });
+    });
 });
 
-function openLightbox(imageSrc, caption) {
-    document.getElementById('lightbox').style.display = 'block';
+function openLightbox(imageSrc, caption, idx) {
+    document.getElementById('lightbox').style.display = 'flex';
     document.getElementById('lightbox-img').src = imageSrc;
-
-    // Find current index
-    currentIndex = galleryImages.findIndex(img => img.src.endsWith(imageSrc));
+    document.body.style.overflow = 'hidden'; // Prevent background scroll
     updateCaption(caption);
+
+    // If idx is undefined, find the index by imageSrc
+    if (typeof idx === 'undefined') {
+        currentIndex = galleryLinks.findIndex(link => link.getAttribute('href') === imageSrc);
+    } else {
+        currentIndex = idx;
+    }
 }
 
 function updateCaption(caption) {
@@ -144,29 +155,31 @@ function updateCaption(caption) {
 
 function closeLightbox() {
     document.getElementById('lightbox').style.display = 'none';
+    document.body.style.overflow = '';
 }
 
 function prevImage(event) {
     event.stopPropagation();
-    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    currentIndex = (currentIndex - 1 + galleryLinks.length) % galleryLinks.length;
     showImageByIndex();
 }
 
 function nextImage(event) {
     event.stopPropagation();
-    currentIndex = (currentIndex + 1) % galleryImages.length;
+    currentIndex = (currentIndex + 1) % galleryLinks.length;
     showImageByIndex();
 }
 
 function showImageByIndex() {
-    const img = galleryImages[currentIndex];
-    document.getElementById('lightbox-img').src = img.src;
+    const link = galleryLinks[currentIndex];
+    document.getElementById('lightbox-img').src = link.getAttribute('href');
     updateCaption(galleryCaptions[currentIndex]);
 }
 
 // Keyboard navigation
 document.addEventListener('keydown', function(event) {
-    if (document.getElementById('lightbox').style.display === 'block') {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox.style.display !== 'none') {
         if (event.key === 'Escape') closeLightbox();
         if (event.key === 'ArrowLeft') prevImage(event);
         if (event.key === 'ArrowRight') nextImage(event);
