@@ -1,5 +1,8 @@
 
 ### TODO:
+
+
+- [ ] Actually write some posts!!
 - [x] reduce video sizes further
 - [x] create posts for each trip
 - [x] adjust tag/category thingy
@@ -9,32 +12,37 @@
 - [x] black page before video
 - [x] fix audio k page
 - [x] check that the page looks ok on mobile
-- [ ] start writing some posts
-- [ ] figure out how toc works
+- [x] start writing some posts
+- [x] figure out how toc works
 - [x] change the accent color to yellow
 - [x] <del>figure out photoswipe</del> used alternate package native to jekyll
 - [x] fix mobile navbar
 
-- [ ] More video fixes
+- [x] More video fixes
 	- [x] multiple filesizes for different internet speeds
 	- [x] make slovenia reel
 	- [x] rehost on different provider
 	- [x] adjust folder structure
 	- [x] mobile optimization script
- 	- [ ] mobile video is still not auto-loading 
+ 	- [x] mobile video is still not auto-loading 
 
 - [x] add gpx map support
 	- [x] Implement the map for kyrg
     - [ ] Implement the map for norway
     - [ ] Implement the map for slovenia 
+	- [ ] Choose a less ugly icon for the map to make it look not so crappy
 	
-- [ ] More photo fixes
+- [x] More photo fixes
 	- [x] create working galleries for each trip
 	- [x] select a bunch of nice photos to start with
 	- [x] add captions for photos
 	- [x] add arrows and swipe support
 	- [x] add thumbnails for each trip
     - [x] WONT DO, LETS HOST ON GH:migrate photo storage to cloudinary, like video
+	- [x] make lightboxes BIGGER
+	- [x] make buttons SMALLER
+	- [x] hide gpx buttons while in a lightbox
+
 
 - [x] polish up the logo a bit more, tighten up the borders I think
 - [x] fix the favicon and page header
