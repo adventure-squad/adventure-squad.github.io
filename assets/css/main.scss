@@ -53,3 +53,7 @@ $selection-background-color: unquote("{{ site.selection.background_color }}");
 }
 
 @import "yat";
+
+body.lightbox-open .leaflet-control {
+  display: none !important;
+}
