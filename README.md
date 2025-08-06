@@ -34,9 +34,9 @@
 	- [x] add captions for photos
 	- [x] add arrows and swipe support
 	- [x] add thumbnails for each trip
-    - [ ] migrate photo storage to cloudinary, like video
+    - [x] WONT DO, LETS HOST ON GH:migrate photo storage to cloudinary, like video
 
-- [ ] polish up the logo a bit more, tighten up the borders I think
+- [x] polish up the logo a bit more, tighten up the borders I think
 - [x] fix the favicon and page header
 
 
