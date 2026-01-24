@@ -93,11 +93,13 @@
     {% assign index = 0 %}
     {% for file in site.static_files %}
       {% if file.path contains include.folder %}
-        {% if file.extname == '.jpg' or file.extname == '.jpeg' or file.extname == '.png' or file.extname == '.gif' %}
-          <a href="{{ file.path | relative_url }}" class="photo-swipe" data-caption="{{ captions[index] | escape }}">
-            <img src="{{ file.path | relative_url }}" alt="{{ file.name }}">
-          </a>
-          {% assign index = index | plus: 1 %}
+        {% if file.path contains '/images/fulls/' %}
+          {% if file.extname == '.jpg' or file.extname == '.jpeg' or file.extname == '.png' or file.extname == '.gif' or file.extname == '.JPG' or file.extname == '.JPEG' or file.extname == '.PNG' %}
+            <a href="{{ file.path | relative_url }}" class="photo-swipe" data-caption="{{ captions[index] | escape }}">
+              <img src="{{ file.path | replace: '/fulls/', '/thumbs/' | relative_url }}" alt="{{ file.name }}">
+            </a>
+            {% assign index = index | plus: 1 %}
+          {% endif %}
         {% endif %}
       {% endif %}
     {% endfor %}

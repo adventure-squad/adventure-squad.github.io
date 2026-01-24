@@ -1,0 +1,40 @@
+---
+layout: photowall
+title: Photos
+permalink: /photos/
+---
+
+<div id="wrapper">
+    <header id="header">
+        <h1><a href="{{ site.baseurl }}/"><strong>Adventure Squad</strong> Photos</a></h1>
+        <nav>
+            <ul>
+                <li><a href="{{ site.baseurl }}/">Back to Blog&nbsp;&nbsp;<i class="fa fa-arrow-left"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="main" data-exif='{{ site.photowall.exif }}'>
+        {% for image in site.static_files %}
+        {% if image.path contains '/images/fulls/' %}
+        {% unless image.path contains '/banners/' %}
+        <article class="thumb">
+            <a href="{{ site.baseurl }}{{ image.path }}" class="image">
+                <img src="{{ site.baseurl }}{{ image.path | replace: '/fulls/', '/thumbs/' }}"
+                     alt="" data-name="{{ image.name }}"/>
+            </a>
+        </article>
+        {% endunless %}
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <footer id="footer" class="panel">
+        <div class="inner">
+            <section>
+                <p>&copy; Adventure Squad 2025</p>
+                <p><a href="{{ site.baseurl }}/">Return to main site</a></p>
+            </section>
+        </div>
+    </footer>
+</div>

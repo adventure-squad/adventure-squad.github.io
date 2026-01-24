@@ -153,6 +153,7 @@ night_mode: "on"
 # this and add the path to the pages in order as they should show up
 header_pages:
 #  - index.html
+  - photos.html
   - archives.html
   - categories.html
 #  - tags.html
@@ -163,7 +164,7 @@ defaults:
   home:
     heading: "Adventure Squad"
     subheading: ""
-    banner: "/assets/images/banners/mountainsbanner.jpg"
+    banner: "/assets/images/fulls/banners/mountainsbanner.jpg"
 
 
 # Banner default settings
@@ -251,3 +252,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-spaceship
+
+# Photo Wall settings
+photowall:
+  exif: '[{"tag": "Model", "icon": "fa fa-camera-retro"}, {"tag": "FNumber", "icon": "far fa-dot-circle"}, {"tag": "ExposureTime", "icon": "far fa-clock"}, {"tag": "ISOSpeedRatings", "icon": "fa fa-info-circle"}]'

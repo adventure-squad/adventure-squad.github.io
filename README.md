@@ -86,7 +86,10 @@ TODO: to be written after adjusting file hosting for images
 4. Embed into a post using raw URL (see example in existing posts)
 
 
-
+### Resize images automatically
+0. choco install imagemagick
+1. Drop raw images into assets/photowall/
+2. Run: npx gulp resize
 
 
 
