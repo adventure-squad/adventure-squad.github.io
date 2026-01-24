@@ -87,9 +87,9 @@ TODO: to be written after adjusting file hosting for images
 
 
 ### Resize images automatically
-0. choco install imagemagick
-1. Drop raw images into assets/photowall/
-2. Run: npx gulp resize
+1. add any full size images to /assets/images/fulls/trip
+2. npm install
+3. npm resize
 
 
 
