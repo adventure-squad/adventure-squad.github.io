@@ -1,0 +1,209 @@
+<style>
+.elevation-container {
+    width: 100%;
+    margin: 10px 0 20px 0;
+    padding: 15px;
+    background: #1a1a2e;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.elevation-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.elevation-stat {
+    text-align: center;
+    padding: 8px 15px;
+    background: #16213e;
+    border-radius: 6px;
+    min-width: 100px;
+}
+
+.elevation-stat-value {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #ff4444;
+}
+
+.elevation-stat-label {
+    font-size: 0.8em;
+    color: #888;
+    margin-top: 2px;
+}
+
+.elevation-chart-wrapper {
+    height: 150px;
+    position: relative;
+}
+</style>
+
+<div class="elevation-container" id="{{ include.id }}-container">
+    <div class="elevation-stats" id="{{ include.id }}-stats"></div>
+    <div class="elevation-chart-wrapper">
+        <canvas id="{{ include.id }}-chart"></canvas>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+<script>
+(function() {
+    const gpxFile = '{{ include.gpx }}';
+    const chartId = '{{ include.id }}-chart';
+    const statsId = '{{ include.id }}-stats';
+
+    fetch(gpxFile)
+        .then(response => response.text())
+        .then(gpxText => {
+            const parser = new DOMParser();
+            const gpx = parser.parseFromString(gpxText, 'text/xml');
+
+            // Extract track points with elevation
+            const trkpts = gpx.querySelectorAll('trkpt');
+            const points = [];
+            let totalDistance = 0;
+            let prevLat = null, prevLon = null;
+            let minEle = Infinity, maxEle = -Infinity;
+            let totalAscent = 0, totalDescent = 0;
+            let prevEle = null;
+
+            trkpts.forEach((pt, i) => {
+                const lat = parseFloat(pt.getAttribute('lat'));
+                const lon = parseFloat(pt.getAttribute('lon'));
+                const eleNode = pt.querySelector('ele');
+                const ele = eleNode ? parseFloat(eleNode.textContent) : 0;
+
+                // Calculate distance from previous point
+                if (prevLat !== null) {
+                    totalDistance += haversine(prevLat, prevLon, lat, lon);
+                }
+
+                // Track elevation stats
+                if (ele < minEle) minEle = ele;
+                if (ele > maxEle) maxEle = ele;
+
+                if (prevEle !== null) {
+                    const diff = ele - prevEle;
+                    if (diff > 0) totalAscent += diff;
+                    else totalDescent += Math.abs(diff);
+                }
+
+                points.push({
+                    distance: totalDistance,
+                    elevation: ele
+                });
+
+                prevLat = lat;
+                prevLon = lon;
+                prevEle = ele;
+            });
+
+            // Display stats
+            const statsDiv = document.getElementById(statsId);
+            statsDiv.innerHTML = `
+                <div class="elevation-stat">
+                    <div class="elevation-stat-value">${totalDistance.toFixed(1)} km</div>
+                    <div class="elevation-stat-label">Distance</div>
+                </div>
+                <div class="elevation-stat">
+                    <div class="elevation-stat-value">${Math.round(minEle)} m</div>
+                    <div class="elevation-stat-label">Min Elevation</div>
+                </div>
+                <div class="elevation-stat">
+                    <div class="elevation-stat-value">${Math.round(maxEle)} m</div>
+                    <div class="elevation-stat-label">Max Elevation</div>
+                </div>
+                <div class="elevation-stat">
+                    <div class="elevation-stat-value">+${Math.round(totalAscent)} m</div>
+                    <div class="elevation-stat-label">Total Ascent</div>
+                </div>
+                <div class="elevation-stat">
+                    <div class="elevation-stat-value">-${Math.round(totalDescent)} m</div>
+                    <div class="elevation-stat-label">Total Descent</div>
+                </div>
+            `;
+
+            // Sample points for smoother chart (max 200 points)
+            const sampledPoints = samplePoints(points, 200);
+
+            // Create chart
+            const ctx = document.getElementById(chartId).getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: sampledPoints.map(p => p.distance.toFixed(1)),
+                    datasets: [{
+                        label: 'Elevation (m)',
+                        data: sampledPoints.map(p => p.elevation),
+                        borderColor: '#ff4444',
+                        backgroundColor: 'rgba(255, 68, 68, 0.2)',
+                        fill: true,
+                        tension: 0.3,
+                        pointRadius: 0,
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                title: (items) => `${items[0].label} km`,
+                                label: (item) => `${Math.round(item.raw)} m`
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            display: true,
+                            title: { display: true, text: 'Distance (km)', color: '#888' },
+                            ticks: { color: '#888', maxTicksLimit: 8 },
+                            grid: { color: 'rgba(255,255,255,0.1)' }
+                        },
+                        y: {
+                            display: true,
+                            title: { display: true, text: 'Elevation (m)', color: '#888' },
+                            ticks: { color: '#888' },
+                            grid: { color: 'rgba(255,255,255,0.1)' }
+                        }
+                    },
+                    interaction: {
+                        intersect: false,
+                        mode: 'index'
+                    }
+                }
+            });
+        })
+        .catch(err => console.error('Error loading GPX:', err));
+
+    // Haversine formula for distance calculation
+    function haversine(lat1, lon1, lat2, lon2) {
+        const R = 6371; // Earth's radius in km
+        const dLat = (lat2 - lat1) * Math.PI / 180;
+        const dLon = (lon2 - lon1) * Math.PI / 180;
+        const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                  Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                  Math.sin(dLon/2) * Math.sin(dLon/2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        return R * c;
+    }
+
+    // Sample points evenly
+    function samplePoints(points, maxPoints) {
+        if (points.length <= maxPoints) return points;
+        const step = points.length / maxPoints;
+        const sampled = [];
+        for (let i = 0; i < maxPoints; i++) {
+            sampled.push(points[Math.floor(i * step)]);
+        }
+        return sampled;
+    }
+})();
+</script>

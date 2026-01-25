@@ -2,17 +2,19 @@
 const GPX_MAP_CONFIG = {
     // Replace with your Thunderforest API key
     thunderforestApiKey: '07c7b93fa6074ea8afb0f389d54a69c0',
-    
+
     // Default map options
     defaultHeight: '400px',
     defaultRouteColor: '#ff4444',
     defaultRouteWeight: 4,
-    defaultRouteOpacity: 0.8,
-    
-    // Icon URLs
-    startIconUrl: '/assets/images/icons/marker.svg',
-    endIconUrl: '/assets/images/icons/marker.svg',
-    shadowUrl: null
+    defaultRouteOpacity: 0.8
+};
+
+// Minimal circle SVG icons as data URLs
+const CIRCLE_ICONS = {
+    start: 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><circle cx="8" cy="8" r="6" fill="#22c55e" stroke="#fff" stroke-width="2"/></svg>'),
+    end: 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><circle cx="8" cy="8" r="6" fill="#ff4444" stroke="#fff" stroke-width="2"/></svg>'),
+    waypoint: 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><circle cx="5" cy="5" r="4" fill="#fff" stroke="#333" stroke-width="1"/></svg>')
 };
 
 // Main function to create GPX map
@@ -44,36 +46,20 @@ function createGPXMap(options) {
         }).addTo(map);
     }
 
-    // Define a custom icon for start/end markers
-    const markerIcon = L.icon({
-        iconUrl: GPX_MAP_CONFIG.startIconUrl,
-        iconSize: [32, 32],      // Larger size for start/end
-        iconAnchor: [16, 32],    // Bottom center
-        popupAnchor: [0, -32],
-        className: ''
-    });
-
-    // Define a small custom icon for waypoints
-    const waypointIcon = L.icon({
-        iconUrl: '/assets/images/icons/pin.svg',
-        iconSize: [16, 16],      // Smaller size for waypoints
-        iconAnchor: [8, 16],     // Bottom center
-        popupAnchor: [0, -16],
-        className: ''
-    });
-
     // Load and display the GPX route
     const gpx = new L.GPX(gpxFile, {
         async: true,
         marker_options: {
-            startIconUrl: GPX_MAP_CONFIG.startIconUrl,
-            endIconUrl: GPX_MAP_CONFIG.endIconUrl,
-            shadowUrl: GPX_MAP_CONFIG.shadowUrl,
+            startIconUrl: CIRCLE_ICONS.start,
+            endIconUrl: CIRCLE_ICONS.end,
+            shadowUrl: null,
             wptIconUrls: {
-                '': '/assets/images/icons/pin.svg'
+                '': CIRCLE_ICONS.waypoint
             },
-            icon: markerIcon,      // For start/end
-            wptIcon: waypointIcon  // For waypoints
+            iconSize: [16, 16],
+            iconAnchor: [8, 8],
+            wptIconSize: [10, 10],
+            wptIconAnchor: [5, 5]
         },
         polyline_options: {
             color: routeColor,
@@ -84,7 +70,12 @@ function createGPXMap(options) {
 
     // Fit map to GPX route when loaded
     gpx.on('loaded', function(e) {
-        map.fitBounds(e.target.getBounds(), {padding: [10, 10]});
+        map.fitBounds(e.target.getBounds(), { padding: [20, 20] });
+    });
+
+    // Handle errors
+    gpx.on('error', function(e) {
+        console.error('GPX loading error:', e);
     });
 
     // Add GPX to map
