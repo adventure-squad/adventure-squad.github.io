@@ -1,0 +1,17 @@
+html<div class="adventure-gallery" id="{{ include.id | default: 'adventure-gallery' }}">
+  {% for image in include.images %}
+    <a href="{{ site.baseurl }}{{ image.url }}" 
+       class="gallery-item"
+       data-pswp-width="{{ image.width | default: 1200 }}" 
+       data-pswp-height="{{ image.height | default: 800 }}">
+      <img src="{{ site.baseurl }}{{ image.thumb | default: image.url }}" 
+           alt="{{ image.description }}" 
+           data-title="{{ image.title }}"
+           loading="lazy">
+    </a>
+  {% endfor %}
+</div>
+
+{% if include.caption %}
+<p class="gallery-caption">{{ include.caption }}</p>
+{% endif %}ha
