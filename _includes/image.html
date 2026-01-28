@@ -1,6 +1,6 @@
-<figure class="image" style="width: 100%; margin: 1.5em 0; text-align: center;">
+<figure class="image" style="margin: 1.5em auto; text-align: center;">
   <a href="{{ include.url }}" class="photo-swipe" data-caption="{{ include.description }}">
-    <img src="{{ include.url | replace: '/fulls/', '/thumbs/' }}" alt="{{ include.description }}" style="width: 100%; height: auto;">
+    <img src="{{ include.url | replace: '/fulls/', '/thumbs/' }}" alt="{{ include.description }}" style="max-width: 100%; height: auto;{% if include.full %} width: 100%;{% endif %}">
   </a>
   {% if include.description %}
   <figcaption style="margin-top: 0.5em; font-size: 0.9em; color: #888; font-style: italic;">{{ include.description }}</figcaption>
